@@ -37,19 +37,19 @@ let fear = 0;
 
 // 리소스 로더
 const imageSources = {
-    characterNormal: './img/12.png',
-    characterHit: './img/hit.png',
-    bg: './img/bg_gamearea.jpg',
-    RejectionMail: './img/Rejection_Mail.png',
-    WarmNote: './img/Warm_Note.png',
-    WindowOfLight: './img/WindowOfLight.png', // ← 슬래시 주의!
-    ShatteredScheduler: './img/ShatteredScheduler.png',
-    ReadyPortfolio: './img/ReadyPortfolio.png',
-    NaggingAlarm: './img/NaggingAlarm.png',
-    TangledCV: './img/TangledCV.png',
-    RestartButton: './img/RestartButton.png',
-    StickerOfSuccess: './img/StickerOfSuccess.png',
-    BlankApplication: './img/BlankApplication.png'
+    characterNormal: 'img/12.png',
+    characterHit: 'img/hit.png',
+    bg: 'img/bg_gamearea.jpg',
+    RejectionMail: 'img/Rejection_Mail.png',
+    WarmNote: 'img/Warm_Note.png',
+    WindowOfLight: 'img/WindowOfLight.png',
+    ShatteredScheduler: 'img/ShatteredScheduler.png',
+    ReadyPortfolio: 'img/ReadyPortfolio.png',
+    NaggingAlarm: 'img/NaggingAlarm.png',
+    TangledCV: 'img/TangledCV.png',
+    RestartButton: 'img/RestartButton.png',
+    StickerOfSuccess: 'img/StickerOfSuccess.png',
+    BlankApplication: 'img/BlankApplication.png'
 };
 const images = {};
 function loadImages(sources) {
@@ -88,8 +88,8 @@ function updateUI() {
 const player = {
     x: 10,
     y: 200,
-  width: 80,  
-  height: 80,
+    width: 80,
+    height: 80,
     sprite: null,
     draw() {
         ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);
@@ -97,7 +97,14 @@ const player = {
 };
 
 // 레인 목록
-const lanes = [100, 200, 300, 400, 500, 570];
+const lanes = [
+    100,
+    200,
+    300,
+    400,
+    500,
+    570
+];
 
 // 플레이어 레인 이동 로직
 let playerLane = 1;
@@ -137,8 +144,8 @@ class Negative {
         this.type = type;
         this.x = GAME_WIDTH;
         this.y = lanes[Math.floor(Math.random() * lanes.length)]; // lane마다 랜덤처리
-    this.width = 70; 
-    this.height = 70;
+        this.width = 70;
+        this.height = 70;
         this.speed = 100; // px/sec
     }
     update(dt) {
@@ -201,10 +208,10 @@ function update(dt) {
         spawnItems(dt); // 아이템이 중복으로 스폰되어서 gpt가 수정해줌
 
         // 3분 후 엔딩 페이지로 이동
-if (timer >= 180) {
-    window.location.href = 'ending-room.html';
-    return;
-}
+        if (timer >= 180) {
+            window.location.href = 'ending-room.html';
+            return;
+        }
     }
 }
 
@@ -212,9 +219,19 @@ if (timer >= 180) {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     // 배경 그리기
-ctx.save();
-ctx.translate(offsetX, offsetY);
-ctx.drawImage(images.bg, 0, 0, images.bg.width, images.bg.height, 0, 0, GAME_WIDTH, GAME_HEIGHT);
+    ctx.save();
+    ctx.translate(offsetX, offsetY);
+    ctx.drawImage(
+        images.bg,
+        0,
+        0,
+        images.bg.width,
+        images.bg.height,
+        0,
+        0,
+        GAME_WIDTH,
+        GAME_HEIGHT
+    );
     ctx.restore();
     // 아이템 그리기
     ctx.save();
@@ -270,7 +287,12 @@ function handleNegative(item) {
         case 'RejectionMail':
             fear += 1; // 불안 증가!
             updateUI();
-            showPopup('불합격 통보 메일', '또 떨어졌네...나만 뒤쳐지고 있어', '전체 속도 20% 감소', '.popup-positive');
+            showPopup(
+                '불합격 통보 메일',
+                '또 떨어졌네...나만 뒤쳐지고 있어',
+                '전체 속도 20% 감소',
+                '.popup-positive'
+            );
             showScreenEffect('dark', 500);
             {
                 const prevSpeed = speedFactor;
@@ -280,7 +302,7 @@ function handleNegative(item) {
             break;
 
         case 'BlankApplication':
-            fear += 1; 
+            fear += 1;
             score = Math.max(0, score - 1);
             updateUI();
             showPopup('빈 지원서 원고', '괜찮을까?', '점수 -1, 불안감 증가', '.popup-neutral');
@@ -288,8 +310,9 @@ function handleNegative(item) {
             break;
 
         case 'NaggingAlarm':
-            if (inputLocked) break;
-            fear += 1; 
+            if (inputLocked) 
+                break;
+            fear += 1;
             inputLocked = true;
             showPopup('울리는 알람 시계', '조급함에 혼란이…', '1.5초간 키 입력 무력화', '.popup-negative');
             showScreenEffect('flash', 1500);
@@ -297,8 +320,9 @@ function handleNegative(item) {
             break;
 
         case 'TangledCV':
-            if (invertControls) break;
-            fear += 1; 
+            if (invertControls) 
+                break;
+            fear += 1;
             invertControls = true;
             showPopup('뒤엉킨 이력서', '방향이 뒤바뀌었어!', '2초간 방향키 반전', '.popup-negative');
             setTimeout(() => invertControls = false, 2000);
@@ -358,12 +382,12 @@ function handleRecovery(item) {
             showScreenEffect('sunrise', 800);
             break;
 
-case 'WindowOfLight':
-  hope += 1;
-  updateUI();
-  showPopup('햇살 핀 창문', '햇살이 마음을 비춘다!', '모든 어두운 효과 해제, 희망 +1', '.popup-hope');
-  showScreenEffect('bright', 800);
-  break;
+        case 'WindowOfLight':
+            hope += 1;
+            updateUI();
+            showPopup('햇살 핀 창문', '햇살이 마음을 비춘다!', '모든 어두운 효과 해제, 희망 +1', '.popup-hope');
+            showScreenEffect('bright', 800);
+            break;
     }
 
 }
@@ -379,7 +403,9 @@ function showPopup(itemName, ment, effectText, themeClass = 'popup-neutral') {
       <div class="popup-effect">${effectText}</div>
     `;
 
-    document.getElementById('popups').appendChild(pop);
+    document
+        .getElementById('popups')
+        .appendChild(pop);
     pop.addEventListener('animationend', () => pop.remove());
 }
 
