@@ -37,20 +37,19 @@ let fear = 0;
 
 // 리소스 로더
 const imageSources = {
-    characterNormal: './img/12.png',
-    characterHit: './img/hit.png',
-    bg: './img/bg_gamearea.jpg',
-    RejectionMail: './img/Rejection_Mail.png',
-    WarmNote: './img/Warm_Note.png',
-    WindowOfLight: '/img/WindowOfLight.png',
-    ShatteredScheduler: '/img/ShatteredScheduler.png',
-    ReadyPortfolio: '/img/ReadyPortfolio.png',
-    NaggingAlarm: '/img/NaggingAlarm.png',
-    TangledCV: '/img/TangledCV.png',
-    RestartButton: '/img/RestartButton.png',
-    StickerOfSuccess: '/img/StickerOfSuccess.png',
-    BlankApplication: '/img/BlankApplication.png'
-
+    characterNormal: 'img/12.png',
+    characterHit: 'img/hit.png',
+    bg: 'img/bg_gamearea.jpg',
+    RejectionMail: 'img/Rejection_Mail.png',
+    WarmNote: 'img/Warm_Note.png',
+    WindowOfLight: 'img/WindowOfLight.png',
+    ShatteredScheduler: 'img/ShatteredScheduler.png',
+    ReadyPortfolio: 'img/ReadyPortfolio.png',
+    NaggingAlarm: 'img/NaggingAlarm.png',
+    TangledCV: 'img/TangledCV.png',
+    RestartButton: 'img/RestartButton.png',
+    StickerOfSuccess: 'img/StickerOfSuccess.png',
+    BlankApplication: 'img/BlankApplication.png'
 };
 const images = {};
 function loadImages(sources) {
