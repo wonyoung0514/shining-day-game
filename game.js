@@ -42,15 +42,14 @@ const imageSources = {
     bg: './img/bg_gamearea.jpg',
     RejectionMail: './img/Rejection_Mail.png',
     WarmNote: './img/Warm_Note.png',
-    WindowOfLight: '/img/WindowOfLight.png',
-    ShatteredScheduler: '/img/ShatteredScheduler.png',
-    ReadyPortfolio: '/img/ReadyPortfolio.png',
-    NaggingAlarm: '/img/NaggingAlarm.png',
-    TangledCV: '/img/TangledCV.png',
-    RestartButton: '/img/RestartButton.png',
-    StickerOfSuccess: '/img/StickerOfSuccess.png',
-    BlankApplication: '/img/BlankApplication.png'
-
+    WindowOfLight: './img/WindowOfLight.png', // ← 슬래시 주의!
+    ShatteredScheduler: './img/ShatteredScheduler.png',
+    ReadyPortfolio: './img/ReadyPortfolio.png',
+    NaggingAlarm: './img/NaggingAlarm.png',
+    TangledCV: './img/TangledCV.png',
+    RestartButton: './img/RestartButton.png',
+    StickerOfSuccess: './img/StickerOfSuccess.png',
+    BlankApplication: './img/BlankApplication.png'
 };
 const images = {};
 function loadImages(sources) {
