@@ -1,0 +1,112 @@
+/* 기본 초기값 */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Pretendard', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  background: linear-gradient(120deg, #fffbea 0%, #ffe066 60%, #e1d8ff 100%);
+  overflow: hidden;
+}
+
+
+/* 엔딩 화면 */
+#ending-bg {
+  width: 100vw; height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 파티클 효과 gpt가 만들어줌 */
+#particles {
+  position: absolute;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  background: transparent;
+}
+
+#endingCredit {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadein 2s;
+}
+
+.ending-title {
+  font-size: 2.6rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 4px 24px #24315966, 0 2px 0 #fff8c3cc;
+  margin-bottom: 1.2em;
+  letter-spacing: 0.02em;
+}
+
+.ending-message {
+  background: rgba(255,255,255,0.68);
+  border-radius: 1.8em;
+  padding: 2.2em 2.2em 1.5em 2.2em;
+  box-shadow: 0 8px 48px #24315922;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ending-quote {
+  font-size: 1.3rem;
+  color: #263159;
+  font-weight: 600;
+  margin-bottom: 1.4em;
+  letter-spacing: 0.01em;
+}
+
+.ending-sub {
+  font-size: 1.05rem;
+  color: #555;
+  margin-bottom: 2em;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+}
+
+.ending-credit {
+  font-size: 1.04rem;
+  color: #ffe066;
+  margin-bottom: 1.5em;
+}
+
+.ending-credit small {
+  color: #b6b6c9;
+  font-size: 0.92em;
+  margin-top: 1em;
+  display: block;
+}
+
+.ending-btn {
+  margin-top: 0.7em;
+  font-size: 1.13rem;
+  background: linear-gradient(90deg, #ffe066 40%, #b3f6c7 100%);
+  color: #243159;
+  font-weight: bold;
+  border: none;
+  border-radius: 1.5em;
+  padding: 0.9em 2.8em;
+  box-shadow: 0 2px 14px #ffe06640;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+.ending-btn:hover {
+  background: linear-gradient(90deg, #ffe066 30%, #fffbea 90%);
+  color: #b58900;
+}
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(30px) scale(0.97);}
+  to   { opacity: 1; transform: none; }
+}

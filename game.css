@@ -1,0 +1,158 @@
+/* 기본 초기값 */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+body {
+  background: #faf8ee;
+    display: flex;
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    align-items: center;
+    /* 세로 중앙 정렬 */
+}
+canvas {
+    background-color: #faf8ee;
+}
+
+
+/* UI */
+#ui {
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 32px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 16px;
+    padding: 10px 34px 8px;
+    font-size: 22px;
+    font-family: 'Pretendard', 'Malgun Gothic', sans-serif;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 0 2px 12px rgba(30,30,40,0.15);
+    z-index: 10;
+    user-select: none;
+}
+#ui span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+#ui span span {
+    color: #ffe066;
+    /* 노랑톤 강조 */
+    font-weight: 700;
+    min-width: 30px;
+    display: inline-block;
+    text-align: right;
+}
+
+/* 팝업 텍스트 */
+
+.popup {
+  position: absolute;
+  top: 20%;               
+  left: 50%;               
+  transform: translateX(-50%);
+  font-size: 2.2rem;
+  font-weight: bold;
+  padding: 12px 32px;
+  border-radius: 10px;
+  background: rgba(30,30,40,0.65);
+  opacity: 0;
+  animation: popupFade 1.3s cubic-bezier(.38,.04,.81,.93) forwards;
+  pointer-events: none;
+  white-space: pre-line;
+  z-index: 30;
+  box-shadow: 0 8px 32px #0004;
+}
+.popup-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.3em;
+  color: #ffe066;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 12px #2228, 0 1px 0 #3331;
+}
+
+.popup-ment {
+  font-size: 2.1rem;
+  font-weight: bold;
+  margin-bottom: 0.18em;
+  color: inherit;
+}
+
+.popup-effect {
+  font-size: 1rem;
+  color: #ddd;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  margin-top: 0.25em;
+}
+
+@keyframes popupFade {
+  0%   { opacity: 0; transform: translate(-50%,10px) scale(0.9);}
+  25%  { opacity: 1; transform: translate(-50%,-5px) scale(1.08);}
+  90%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%,-30px) scale(1);}
+}
+
+
+
+/* 팝업 효과 css 분리 */
+.popup-positive  { color: #fc0; }
+.popup-negative  { color: #f33; }
+.popup-neutral   { color: #fff; }
+.popup-hope      { color: #ffe066; }
+.popup-info      { color: #0ff; }
+
+/* 효과 이펙트 */
+#screenEffect {
+  position: absolute; top:0; left:0; width:100vw; height:100vh;
+  z-index: 15; pointer-events: none; transition: none;
+}
+
+/* 어두워짐 */
+#screenEffect.dark {
+  background: rgba(30,30,40,0.48);
+  transition: background 0.2s;
+}
+
+/* 오렌지빛 광휘 */
+#screenEffect.orangeGlow {
+  background: rgba(255, 160, 64, 0.25);
+  transition: background 0.3s;
+}
+
+
+/* 화면 번쩍임 */
+#screenEffect.flash {
+  background: rgba(255,255,255,0.7);
+  transition: background 0.05s;
+}
+
+/* 블러 효과  */
+#screenEffect.blur {
+  backdrop-filter: blur(5px);
+  background: rgba(60,60,60,0.07);
+}
+
+/* 밝은 효과 */
+#screenEffect.bright {
+  background: rgba(255,255,160,0.20);
+}
+
+/* 일출(노랑-분홍 그라데이션) */
+#screenEffect.sunrise {
+  background: linear-gradient(120deg, #ffe066 0%, #ffc6ff 80%);
+  opacity: 0.85;
+  transition: background 0.5s, opacity 0.5s;
+}
+
+
+/* 배경 이미지 출처 https://craftpix.net/freebies/free-sky-with-clouds-background-pixel-art-set/ */
