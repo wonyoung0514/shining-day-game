@@ -62,6 +62,10 @@ function loadImages(sources) {
                 images[key] = img;
                 resolve();
             };
+            img.onerror = () => {
+                console.error('이미지 로딩 실패:', key, img.src);
+                resolve();
+            }
         }));
     }
     return Promise.all(promises);
