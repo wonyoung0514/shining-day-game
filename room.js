@@ -120,7 +120,7 @@ function checkForTransition(x, y) {
 
     // box의 중심이 문 중심 영역에 들어가면
     if (x >= minX && x <= maxX && y >= minY && y <= maxY) {
-        window.location.href = "index.html";
+        window.location.href = "game.html";
     }
 }
 
